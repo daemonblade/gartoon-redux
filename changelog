@@ -1,0 +1,203 @@
+===========================
+= Gartoon Redux changelog =
+===========================
+
+1.11 (2013-09-30)
+
+ * New icons for LibreOffice, Mendeley Desktop, GMail, Deja Dup,
+   Color (Gnome control panel applet), Online Accounts, Ubuntu One Music,
+   Subtitle Editor.
+ * Improved icons for Ubuntu One, Language Support and poedit.
+ * Incorporate a minor patch from the Ubuntu packaging.
+
+1.10 (2010-03-27 (?))
+
+ * Icons for Checkbox (aka System Testing), Gnome Bluetooth, Palimpsest
+   (aka Gnome Disk Utility), Ubuntu One, Ubuntu Software Store.
+ * Icons for GMPC tray applet and Deluge, from David Liang.
+ * Extra network transmission status icons, from David Liang (in the
+   extras directory).
+ * Hint icon (shows after e.g. Firefox updates)
+ * New category icon: applications-utilities
+ * New device icon: computer-laptop (used by KDE)
+ * Better icon for preffered applications
+ * Lots of fixes and minor updates for Ubuntu Karmic
+
+1.9   (2009-04-01)
+
+ * New icons for Adobe AIR, Banshee, Bazaar-GTK, Computer Janitor (Ubuntu),
+   Gnome Tetravex, Pop-Up Notifications (Ubuntu), Ubuntu Tweak, VirtualBox.
+ * Icons for Banshee (except device icons).
+ * New mimetype icons for Adobe AIR installer, C-Sharp source, Java source,
+   Java class file, Java JNLP file.
+ * Aliases for Office 2007 files.
+ * Some alias fixes for Ubuntu 9.04.
+ * Properly debianized package (with watch file and other goodies)
+ * Automatically replace the distribution logo based on LSB information.
+ * Launchpad repository for automatic updates.
+ 
+1.8   (2009-01-10)
+
+ * New icons for Amarok, Disk Manager, Disksearch, Emilia Pinball, Exaile,
+   GCrystal, Gnome Do, GOPchop, GTorrentViewer, GQuilt, Gweled, Home User Backup,
+   Inkblot, KDevelop, KDiamond, NDIS-GTK, PoEdit, QJackCtl, Stardict, Sysprof.
+ * New mimetype icons for application-x-gchempaint, OpenDocument Formula,
+   OpenDocument master document, OpenVPN settings.
+ * New device icon video-television.
+ * Downloads emblem.
+ * Many new aliases.
+ * Change license to GPL v2 or later.
+
+1.7   (2008-12-13)
+
+ * New icons for Anjuta, Easytag, GChemPaint, Gnome Chess, Gnome Mines,
+   Gnome Robots, Kadu, NtEd, QtiPlot, Sound Converter, USB Creator (Ubuntu),
+   redesigned icon for MPlayer.
+ * Full set of icons for Brasero.
+ * Mimetype icons for application-x-anjuta and application-x-profile.
+ * Several corrections and additions to the removable media icons.
+ * Encrypted wireless LAN icon for Network Manager.
+ * Added a shadow to dialog-password and related icons to fit the theme better.
+ * New extra icon for PSP (in the extras directory of the source package).
+ * Some fixes for Gnome 2.24 and Ubuntu 8.10.
+
+1.6   (2008-06-19)
+
+ * New icons for Acrobat Reader, F-Spot, Fontforge, Hugin, Konqueror, Mathematica,
+   Nautilus, Nautilus Actions, Graphics category, gtk-connect, some stock Gnome
+   icons used in Gnome games.
+ * Full set of icons for F-Spot (0.4.3.1).
+ * New device icons: camera-video, camera-web, modem, phone, pda.
+ * New icons for Cheese, Eclipse and system-help by David Liang.
+ * A bunch of new mimetype icons: text-csv, application-x-remote-connection,
+   text-x-log, application-x-gnome-theme-package, text-x-c++hdr,
+   OpenDocument Chart, text-vcalendar, text-x-subtitles (linked to all subtitle
+   mimetypes), application-mathematica; several improved image mimetype icons.
+ * Additional icons for KDE4: colored flags, colored folders, arrows,
+   games-config-*, games-highscores, and a few more.
+ * Dialog icon color changes in order to be more distinguishable from each other:
+   dialog-information changed from red to blue, dialog-question changed from
+   red to bright green.
+ * New Gartoon-style distribution logos: Fedora, Arch Linux, Gentoo.
+ * Removed Gnome branding from application-x-generic and insert-object.
+ * Many links for KDE, planning KDE 3 and 4 support in 2.0.
+
+1.5   (2008-05-10)
+
+ * New icons for Log Viewer, Transmission, Dosbox and the Education category.
+ * Full sets of icons for Seahorse (Gnome encryption manager), Gnome Device
+   Manager, PulseAudio Device Chooser, Synaptic, Tomboy (0.10.1).
+ * Gnome Power Manager icons for the brightness applet (UPS and phone icons are
+   still missing).
+ * Better zoom and find icons, using the large version of the magnifying glass
+   artwork from the original Gartoon.
+ * More legible C source, C header and C++ source icons.
+ * Lock icons (stock and Epiphany variants).
+ * Ubuntu distribution logos.
+ * network-wired and network-wireless icons.
+ * Many fixes for Gnome 2.22, bringing back icons that were renamed.
+ * .tar.gz package available again.
+ * configure script. You can easily change the distribution logo when building
+   Gartoon Redux. See the readme for instructions.
+ * New/modified icon count now over 400.
+
+1.4   (2008-03-31)
+
+ * Weather status icons.
+ * Rhythmbox library and other icons - now 100% themed.
+ * New device icons: input-tablet, media-zip, media-jaz, scanner.
+ * New mimetype icons: text-x-makefile, image-svg+xml, audio-x-scpls,
+   text-x-vcard, text-x-gtkrc.
+ * Wine menu icons.
+ * Improved repeat and shuffle icons.
+ * More readable icon for GJiten.
+ * Fixed the SD/MMC media icon - the notch was on the wrong side.
+ * Fixed all icons containing CDs - now CDs have a transparent hole.
+ * Touched up Tomboy and Sticky Notes icons - outlines have sharp corners.
+ * Many additional symlinks.
+ * Various minor improvements, i.e. reduced size of some SVG icons.
+
+1.3   (2008-02-15)
+
+ * Fixed another bug in the build system that caused the fixed size folders
+   to be indexed with incorrect size field. Fixed size icons should *finally*
+   work properly.
+ * Playlist status icons.
+ * New icons for memory cards (CF, SD/MMC, SmartMedia, Memory Stick) and
+   a generic media-flash icon. New joystick icon.
+ * Many new stock icons (mail-filters-apply, inbox, outbox...) and many stock
+   icon symlinks. New icon count now over 240.
+ * Evolution now 100% themed.
+ * Many new symlinks for KDE applications.
+ * Source tree reorganized, now contains Debian control files.
+ * GVim icons. See the installation notes for instructions how to enable them.
+ * gtk-update-icon-cache done at postinst.
+ * Theme is now a proper superset of Ubuntoon/GNUtoon from February 2, 2008
+   (i.e. if some icon is present in Ubuntoon, it will also be present
+   in Gartoon Redux, though it may be different), minus the icons with
+   obviously mistyped names, the Ubuntu logo and the non-Gnome emblems.
+ * Regular tar package is no longer available.
+
+1.2   (2008-02-12)
+
+ * Fixed a bug in the new build system that would cause the fixed-size icons
+   not to be indexed in index.theme
+ * New/improved icons for: Geyes, Gnome Power Manager, Workspace Switcher,
+   Menu Editor, Configuration Editor, Window List, Pidgin,
+   default icon for .desktop files (application-default-icon)
+ * Gettext translation icons (2 icons)
+ * 9 new icons for font mimetypes (now more distinguishable at small sizes)
+ * New Perl script, OCaml source, Ruby script icons
+ * Update notifier icons
+ * preferences-* freedesktop.org icons
+
+1.1   (2008-02-09)
+
+ * Debian installer available.
+ * There were two kinds of archive icons: rounded ones and rectangular ones.
+   The rectangular ones were removed. Also icons which differed only with
+   the text on the package were removed.
+ * New icons for zip, 7z and tar archives, improved icons for other archives.
+ * New icon for Window Selector applet.
+ * Converted build scripts to Perl instead of abusing Bash.
+ * Various minor tweaks to the appearance of existing icons.
+
+1.0 - Initial release   (2008-02-07)
+
+ * Considerably reduced duplication by introducing symlinks (including
+   cross-directory ones).
+ * Added PNG renders auto-created with rsvg to fix display problems in some
+   applications. 16x16, 22x22, 24x24 and 32x32 sizes are included.
+ * Most Gnome and freedesktop.org icons covered.
+ * Improved/new mimetype icons:
+   application-certificate, application-qif, application-vnd.rn-realmedia-secure,
+   application-x-abiword, application-x-audacity-project, application-x-brasero,
+   application-x-chm, application-x-emerald-theme, application-x-font-ttf,
+   application-x-gnome-app-info, application-x-gnumeric,
+   application-x-ipod-firmware, application-x-ms-dos-executable,
+   application-x-php, application-x-python-bytecode, application-x-reject,
+   application-x-stuffit, application-x-xoj, audio-x-matroska, audio-x-ms-wma,
+   audio-x-scpls, audio-x-wav, text-x-apt-sources-list, text-x-fortran,
+   text-x-python, text-x-shellscript, text-x-tex, text-x-troff-man,
+   video-quicktime, video-vnd.rn-realvideo, video-x-matroska, video-x-ms-wmv,
+   x-directory-nfs-server, x-office-address-book, x-office-calendar,
+   x-office-drawing
+ * New/improved application icons:
+   Audacity, Blender, Bluetooth Analyzer, Calculator, CompizConfig,
+   Date and Time, Disk Usage Analyzer (baobab), Devhelp, Emerald,
+   Evolution stock icons (most), Fusion Icon, Gjiten, Glade 3, Gnome Commander,
+   Gnome Panel applets (many icons), Gnome Photo Printer,
+   Gnome Power Manager status icons (most), Gnome Session icons,
+   Language Support, Launchpad integration icons (Ubuntu), MPlayer,
+   Network Manager - wireless status icons, Partition Editor, RasMol,
+   Rhythmbox, SCIM, Sound Recorder, System Monitor, Texmaker, Tomboy, Totem,
+   Ubuntu Restricted Drivers Manager, UFRaw, Update Manager, VLC, Xournal
+   ... and some others I don't remember
+ * Many new and improved action / stock icons:
+   insert-*, mail status, mail actions, full trash icon (now it's more full),
+   pause, text direction, select all, clear, "create new..." icons, flip,
+   rotate, tasks, ...
+ * Countless new links that cause more icons to appear.
+ * All SVGs are now internally the same size (90x90 pixels), which fixes the
+   blurred appearance of stock icons.
+ * Emblems resized to fill the whole SVG canvas.

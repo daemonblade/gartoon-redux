@@ -1,0 +1,38 @@
+style "GartoonReduxWidget"
+{
+# stock[""] = {{ @"" }}
+
+# gThumb
+stock["gthumb-add-comment"]          = {{ @"accessories-text-editor" }}
+stock["gthumb-add-to-catalog"]       = {{ @"stock_book_blue" }}
+stock["gthumb-bookmark"]             = {{ @"bookmark" }}
+stock["gthumb-brightness-contrast"]  = {{ @"stock_brightness" }}
+stock["gthumb-camera"]               = {{ @"camera-photo" }}
+stock["gthumb-catalog"]              = {{ @"stock_book_blue" }}
+stock["gthumb-change-date"]          = {{ @"gnome-panel-clock" }}
+stock["gthumb-color-balance"]        = {{ @"adjust-colors" }}
+stock["gthumb-crop"]                 = {{ @"crop" }}
+stock["gthumb-desaturate"]           = {{ @"color-desaturate" }}
+stock["gthumb-edit-image"]           = {{ @"mode-image-edit" }}
+stock["gthumb-enhance"]              = {{ @"autocolor" }}
+stock["gthumb-film"]                 = {{ @"film-roll" }}
+stock["gthumb-flip"]                 = {{ @"object-flip-vertical" }}
+stock["gthumb-image"]                = {{ @"emblem-pictures" }}
+stock["gthumb-invert"]               = {{ @"color-invert" }}
+stock["gthumb-library"]              = {{ @"applications-accessories" }}
+stock["gthumb-metadata"]             = {{ @"tag" }}
+stock["gthumb-mirror"]               = {{ @"object-flip-horizontal" }}
+stock["gthumb-redeye-removal"]       = {{ @"red-eye-remove" }}
+stock["gthumb-rotate-90"]            = {{ @"object-rotate-right" }}
+stock["gthumb-rotate-90-cc"]         = {{ @"object-rotate-left" }}
+stock["gthumb-show-catalogs"]        = {{ @"stock_book_blue" }}
+stock["gthumb-slideshow"]            = {{ @"x-office-presentation" }}
+stock["zoom-fit-width"]              = {{ @"zoom-fit-width" }}
+
+# GVim
+stock["vim-save-all"]                = {{ @"document-save-all" }}
+stock["vim-session-load"]            = {{ @"vim-session-load" }}
+stock["vim-session-save"]            = {{ @"vim-session-save" }}
+stock["vim-find-help"]               = {{ @"vim-find-help" }}
+}
+class "GtkWidget" style "GartoonReduxWidget"

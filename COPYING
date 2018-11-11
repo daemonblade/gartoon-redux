@@ -1,0 +1,33 @@
+Gartoon Redux is based on Gartoon, which was originally released under GPL v2.
+Later the author re-released Gartoon under GPL v2 or later. Relevant e-mail
+(with headers trimmed):
+
+Message-Id: <C3FBD5B1-4400-4AFE-84B4-688E6442EBB8@gmail.com>
+From: Kuswanto <zeussama@gmail.com>
+To: =?UTF-8?Q?Krzysztof_Kosi=C5=84ski?= <tweenk.pl@gmail.com>
+Content-Type: text/plain; charset=US-ASCII; format=flowed; delsp=yes
+Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0 (Apple Message framework v930.3)
+Subject: Gartoon GPL v2
+Date: Wed, 7 Jan 2009 08:26:56 +0700
+X-Mailer: Apple Mail (2.930.3)
+
+I release Gartoon icons under GPL v2 or, at the licensee's option, any  
+later version
+
+Copyright:
+
+Gartoon Redux is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 2, or (at your option) any later version.
+
+Gartoon Redux is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+Gartoon Redux; see the file COPYING.  If not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+On Debian systems, a copy of the GNU General Public License is available in
+/usr/share/common-licenses/GPL as part of the base-files package.

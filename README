@@ -1,0 +1,118 @@
+Gartoon Redux Gnome Icon Theme
+==============================================
+Created by Krzysztof Kosiński (tweenk@o2.pl)
+An extension of GNUtoon
+Modified by reassuringlyoffensive (nathan@xmail.net)
+Created by Zeus (zeussama@gmail.com).
+Website http://zeus.qballcow.nl
+With help from: La Mula Francis
+==============================================
+
+===Installation===
+
+There are four options:
+
+a) Use the Debian installer. You will be able to change the theme
+   to Gartoon Redux in root applications then. Run:
+      gksu gnome-appearance-properties
+   and set the theme  for the root user to Gartoon Redux.
+b) Drag the .tar.gz archive onto the Appearance Properties window.
+c) Unpack the archive to ~/.icons/GartoonRedux.
+d) Get the source archive and create your own package. See below for details.
+
+Additionally, there are stock icons for some applications which need
+modifying your gtkrc file. Open the file named .gtkrc-2.0 in your home
+directory (if it doesn't exist, create it) and put this line at the end:
+
+   include "/path/to/gtkrc"
+   
+where /path/to/gtkrc is the path to this package's gtkrc file. If you
+installed using the Debian installer, it will be:
+
+   include "/usr/share/icons/GartoonRedux/gtkrc"
+   
+If you dragged the tar package on the Appearance window, it will be:
+   
+   include "/home/<your username>/.icons/GartoonRedux/gtkrc"
+   
+Currently, this will enable Gartoon Redux icons in GVim and GThumb. Support
+for other applications like GIMP is planned.
+
+
+===Building from source===
+   
+Gartoon Redux is also distributed as source (that means, SVG only + a set
+of scripts that take care or generating the rendered versions). To build it,
+you will need the "rsvg" executable from librsvg (librsv2-bin package
+in Debian), and Perl to run the configure script. Go to the directory where
+you unpacked the source package and run:
+
+   ./configure
+   make
+   make install
+   
+The last command needs to be run as root. This will install the icons into
+/usr/local/share/icons/GartoonRedux.
+
+===F.A.Q===
+
+Q: Why should this theme be better than the original Gartoon?
+A: It has over 500 new icons, and countless symlinks to make the icons
+   show up in most applications. There are also some symlinks for desktop
+   environments other than Gnome.
+   
+Q: One of my applications is unthemed. How do I fix that?
+A: There are two common causes.
+   1. There are no icons for your application. You need to find out the names
+      and create them. This may require looking at the source code. You can
+      also send an e-mail to the theme author instead of doing it yourself.
+   2. The application doesn't support theming or uses the theme mechanism
+      in a non-standard way. Some common examples are OpenOffice.org and
+      Firefox 2. Also, some launchers use fixed icon paths. You can edit
+      the .desktop files in /usr/share/applications to find out (you need to
+      do it via the Open menu of your text editor, because opening them in
+      Nautilus runs the corresponding application.
+
+Q: What is Gartoon Redux's License?
+A: It is lincensed under the GNU General Public License (read COPYING).
+
+Q: Why GPL? It's not like Gartoon Redux is a program!
+A: Gartoon Redux contains both SVG images and their PNG renders.
+   The intended interpretation is that the SVG images constitute the source
+   code. This means that if you distribute a modified version of Gartoon Redux,
+   the vector versions of all the icons must also be made available.
+
+Q: Can I make a modified version of this theme?
+A: Yes, you can. You can also distribute it, provided that you also make
+   the vector versions of all the icons publicly available, either as
+   a separate download or include them in the theme.
+   
+Q: I want to create a Gartoon-style icon. How do I do that?
+A: First, look at the existing icons to get a feel of the style. To edit SVG,
+   You will need Inkscape. I recommend acquainting yourself with its
+   capabilities first. You should be familiar with at least the node tool,
+   gradient fills, strokes, boolean operations on paths, object to path, text
+   tools, dynamic offset and clones. I recommend using the latest SVN version,
+   which has a clipboard that works across different instances. New icons should
+   be 90x90 pixels. You should use the Gartoon palette, found in the extras
+   directory - copy it to ~/.inkscape/palettes (create that dir if it doesn't
+   exist). To select the palette, click the tiny arrow at the right edge
+   of the palette bar and select Gartoon from the list.
+   It takes some time to master the Gartoon style. Its key elements are:
+   1. Smooth gradients.
+   2. Thick dark outline with a color matching the foreground, or black. Look
+      for a compromise between contrast and color consistency. You can create it
+      easily by unioning all foreground shapes and then applying a dynamic
+      offset. However, you will need to tweak the sharp corners.
+   3. Background shadow, black with alpha=75, often a copy of the outline.
+   4. Simplified depiction of real-world objects.
+   5. Dynamic perspectives.
+   6. Reuse of existing elements like arrows, pencil, padlock, etc.
+   7. Gartoon palette, with other colors (notably purple) used only where
+      really necessary.
+   8. Solid white (or trans-white to opaque-white gradient) highlights on items
+      intended to look glossy.
+   Once you create the icon, check whether it's rendered correctly by librsvg,
+   e.g. whether the preview in Nautilus looks like what you created in Inkscape.
+   If you use advanced SVG features, you may run into rendering errors with
+   librsvg, and your icons will display incorrectly.

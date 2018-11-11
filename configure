@@ -1,0 +1,173 @@
+#!/usr/bin/perl -w
+#
+# Gartoon Redux configure script
+# (C) 2008-2009 Krzysztof Kosiński
+# Released under GNU GPL v2 or later; see the file COPYING for details
+#
+# This is a script to generate a Makefile.
+# Having a Makefile greatly reduces the time it takes to rebuild the theme,
+# Because only the icons which have changed are rendered again.
+#
+
+open(MAKEFILE, '> Makefile');
+
+@render_sizes = (16, 22, 24, 32); # Which sizes to render. This is configurable.
+$install_in_home = 0;
+$fixlogo = 1;
+$install_owner = '-o root';
+%files = ();
+
+# directories
+$builddir = 'build';
+$prefix = '/usr/local';
+
+# option parsing
+foreach (@ARGV)
+{
+	if (/^--sizes=(([0-9]+)(,[0-9]+)*)$/) {
+		@render_sizes = split (/,/, $1);
+	}
+	elsif (/^--help$/ || /^-h$/ || /^-?$/) {
+		usage();
+	}
+	elsif (/^-f$/ || /^--no-fixlogo$/ || /^--defer-fixlogo$/) {
+		$fixlogo = 0;
+	}
+	elsif (/^--prefix=(.*)$/) {
+		$prefix = $1;
+	}
+	elsif (/^-i$/ || /^--install-in-home$/) {
+		$username = `whoami`;
+		chomp($username);
+		$prefix = "/home/$username/.icons";
+		$install_in_home = 1;
+	}
+	else { print $_,": unrecognized option\n"; usage(); exit 1; }
+}
+
+# put computed variables here
+$size_targets = join(' ', map {'build' . $_} @render_sizes);
+$render_sizes_line = join(' ', @render_sizes);
+if ($install_in_home) {
+	$icondir = "\$(PREFIX)/GartoonRedux";
+	$install_owner = '';
+}
+else {
+	$icondir = "\$(PREFIX)/share/icons/GartoonRedux";
+}
+
+if ($fixlogo) {
+	$fixlogo_command = "perl -w fix-logo.pl --icondir=\$(icondir)";
+} else {
+	$fixlogo_command = "install -m 755 -t \$(icondir) fix-logo.pl";
+}
+
+# All relatively fixed content should go here
+print MAKEFILE <<END;
+PREFIX = $prefix
+icondir = $icondir
+
+.PHONY: all render clean links index prepare $size_targets
+all: prepare render index
+dist: all tar-package-epilogue
+tar-package: all tar-package-epilogue
+
+tar-package-epilogue:
+	tar -cf gartoon-redux.tar --exclude=0ALIAS --exclude=0CONTEXT $icondir
+	gzip -f --best gartoon-redux.tar
+clean:
+	rm -rf $builddir
+
+index:
+	perl -w make-index.pl --builddir=$builddir $render_sizes_line
+
+install:
+# first remove everything
+	rm -rf \$(icondir)
+# now copy over the rendered icons
+	find $builddir -type d -printf '\$(icondir)/%P\\n' | xargs -n 1 install -d -m 755
+	find $builddir -type f -printf '%p \$(icondir)/%P\\n' | xargs -n 2 install -m 644
+# then copy over the scalable ones, excluding 0ALIAS and 0CONTEXT
+	find src -type d -printf '\$(icondir)/scalable/%P\\n' | xargs -n 1 install -d -m 755
+	find src -type f -not -name '0*' -printf '%p \$(icondir)/scalable/%P\\n' | xargs -n 2 install -m 644
+# install gtkrc file
+	install -m 644 -t \$(icondir) gtkrc
+# create symlinks
+	perl -w install-links.pl --alias-file=src/0ALIAS --icondir=\$(icondir) $render_sizes_line
+	$fixlogo_command
+# delete broken links
+	find -L \$(icondir) -type l -delete
+
+render: $size_targets
+
+END
+
+process_dir("src");
+
+# print one target per render size
+foreach (@render_sizes) {
+	print MAKEFILE "build$_: \\\n\t", join(" \\\n\t", @{ $files{$_} }), "\n";
+}
+
+print MAKEFILE
+	"prepare:\n", # copies the directory structure to builddir
+		"\tmkdir -p $builddir\n",
+		"\tcd src && find . -mindepth 1 -type d -exec mkdir -p ";
+foreach (@render_sizes) {
+	print MAKEFILE "../$builddir/${_}x${_}/\\{\\} ";
+}
+print MAKEFILE "\\;\n";
+close(MAKEFILE);
+
+###############################################################################
+
+# subroutine to generate rules for all png renders
+sub process_dir {
+	my $dir = shift;
+	my @dirfiles = glob("$dir/*");
+	foreach (@dirfiles) {
+		# recurse into subdirectories
+		if (-d $_) {
+			process_dir($_);
+			next;
+		}
+		# create rules for png files
+		elsif (/\.svg$/) {
+			my $svgname = $_;
+			foreach (@render_sizes) {
+				(my $pngname = $svgname) =~ s!src!$builddir/${_}x${_}!;
+				$pngname =~ s/\.svg$/.png/;
+				print MAKEFILE &get_render_command($svgname, $pngname, $_)."\n";
+				push @{ $files{$_} } , $pngname;
+			}
+		}
+	}
+}
+
+sub get_render_command {
+	my $source = shift;
+	my $target = shift;
+	my $size = shift;
+	my $zoom_factor = $size / 90;
+	return "$target: $source\n" .
+	       "\trsvg-convert -x $zoom_factor -y $zoom_factor $source -o $target";
+}
+
+sub usage {
+	print <<END;
+configure - Gartoon Redux configure script
+Supported command-line options:
+  --help      
+      Display this help
+  --sizes=SIZE[,SIZE...]
+      Render the SVG files at given pixel sizes. The parameter should be
+      a comma separated list of integers with no spaces. Default is 16,22,24,36
+  -f, --defer-fixlogo
+      Don't try to fix the distributor logo to match the distribution
+      at install time; instead, install the script into the icon directory
+  -i, --install-in-home
+      Install the theme in the current user's home directory
+  --prefix=PREFIX
+      Install in PREFIX instead of /usr/local
+END
+}

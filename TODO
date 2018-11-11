@@ -1,0 +1,49 @@
+Motifs direly needed:
+Generic plugin (jigsaw piece)
+Playing cards
+Molecule
+Firewall (burning brick wall)
+
+kdvi
+okular
+handbrake
+inkscape
+avidemux
+Pidgin system tray icons (requires upstream changes to support theming)
+Inkscape 0.47 icons
+
+/usr/share/app-install/icons
+/usr/share/banshee-1/icons
+/usr/share/brasero/icons
+/usr/share/ccsm/icons
+/usr/share/empathy/icons
+/usr/share/eog/icons
+/usr/share/epiphany-browser/icons
+/usr/share/evince/icons
+/usr/share/evolution/2.28/icons
+/usr/share/file-roller/icons
+/usr/share/f-spot/icons
+/usr/share/gconf-editor/icons
+/usr/share/gedit-2/icons
+/usr/share/gnome-doc-utils/icons
+/usr/share/gnome-games/icons
+/usr/share/gnome-media/icons
+/usr/share/gnome-packagekit/icons
+/usr/share/gnome-power-manager/icons
+/usr/share/gstreamer-properties/icons
+/usr/share/gtkhtml-3.14/icons
+/usr/share/icons
+/usr/share/indicator-applet/icons
+/usr/share/inkscape/icons
+/usr/share/libindicator/icons
+/usr/share/metacity/icons
+/usr/share/nautilus/icons
+/usr/share/notify-osd/icons
+/usr/share/pyshared/coherence/ui/icons
+/usr/share/rhythmbox/icons
+/usr/share/scim/icons
+/usr/share/skype/icons
+/usr/share/system-config-printer/icons
+/usr/share/tomboy/icons
+/usr/share/ubuntuone-client/icons
+/usr/share/yelp/icons
